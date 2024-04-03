@@ -1,5 +1,5 @@
 {
-  "name": "native",
+  "name": "cometchat-poc",
   "main": "index.js",
   "version": "1.0.0",
   "scripts": {
@@ -13,14 +13,18 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@cometchat/chat-sdk-javascript": "^4.0.4",
     "@cometchat/chat-sdk-react-native": "^4.0.6",
+    "@cometchat/chat-uikit-react": "^4.3.3",
     "@cometchat/chat-uikit-react-native": "^4.3.0",
+    "@cometchat/uikit-elements": "^4.3.3",
+    "@cometchat/uikit-resources": "^4.3.2",
+    "@cometchat/uikit-shared": "^4.3.3",
     "@expo/vector-icons": "^14.0.0",
     "@react-native-async-storage/async-storage": "^1.23.1",
-    "@react-native-community/clipboard": "^1.5.1",
+    "@react-native-clipboard/clipboard": "^1.13.2",
     "@react-native-community/datetimepicker": "^7.6.3",
     "@react-navigation/native": "^6.0.2",
-    "@repo/ui": "*",
     "expo": "~50.0.14",
     "expo-build-properties": "^0.11.1",
     "expo-font": "~11.10.3",
