@@ -1,18 +1,41 @@
 import { StyleSheet } from 'react-native';
-import ChatProvider from '@/providers/ChatProvider';
+import { useChatContext } from '@/providers/ChatProvider';
+import { ChannelList } from 'stream-chat-expo';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import React from 'react';
 
 export default function TabTwoScreen() {
+  const { userIsReadyToChat, userId, handleLogin, handleLogout } = useChatContext();
+
+  React.useEffect(() => {
+    handleLogin();
+
+    return handleLogout();
+  }, [])
+
+  const filters = React.useMemo(() => ({
+    members: {
+      $in: [userId],
+    }
+  }), [userId])
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/messages.tsx" />
-      <ChatProvider>
-        {/* <CometChatUsersWithMessages /> */}
-      </ChatProvider>
+      {userIsReadyToChat && userId && (
+        // <ChannelList
+        //   filters={{
+        //     members: {
+        //       $in: [userId],
+        //     }
+        //   }} 
+        //   sort={{
+        //     last_message_at: -1,
+        //   }}
+        // />
+        <Text>User is ready</Text>
+      )}
     </View>
   );
 }

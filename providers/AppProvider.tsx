@@ -5,6 +5,9 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useColorScheme } from '@/components/useColorScheme';
+import { ChatProvider } from './ChatProvider';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,11 +35,15 @@ export const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => 
   }
 
   return <AppContext.Provider value={{}}>
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <SafeAreaView style={{ flex: 1 }}>
-          {children}
-        </SafeAreaView>
-      </ThemeProvider>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <SafeAreaView style={{ flex: 1 }}>
+            <ChatProvider>
+                {children}
+            </ChatProvider>
+          </SafeAreaView>
+        </ThemeProvider>
+    </GestureHandlerRootView>
   </AppContext.Provider>;
 };
 

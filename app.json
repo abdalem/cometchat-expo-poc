@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "cometchat-poc",
-    "slug": "cometchat-poc",
+    "name": "expo-chat-poc",
+    "slug": "expo-chat-poc",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -16,26 +16,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "infoPlist": {
-        "NSCameraUsageDescription": "This is for Camera permission",
-        "NSMicrophoneUsageDescription": "This is for Microphone permission"
-      },
-      "bundleIdentifier": "fr.gamefactory.app"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "permissions": [
-        "android.permission.INTERNET",
-        "android.permission.CAMERA",
-        "android.permission.RECORD_AUDIO",
-        "android.permission.MODIFY_AUDIO_SETTINGS",
-        "android.permission.ACCESS_NETWORK_STATE"
-      ],
-      "package": "fr.gamefactory.app"
+      }
     },
     "web": {
       "bundler": "metro",
